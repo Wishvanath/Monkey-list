@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import './App.css'
 import MonkeyList from './components/card-list/card-list.component';
+import SearchBox from './components/search-box/search-box.component';
 
 export default class App extends Component {
   // define constructor
@@ -35,12 +37,22 @@ export default class App extends Component {
       monkey.name.toLowerCase().includes(searchField.toLocaleLowerCase())
     )
     return (
-      <div>
+      <div className="App">
 
-        <input  type ="search" placeholder ="search Monkey" onChange={(e) => {
+        <h1>Monkey List</h1>
+        {/* <input  type ="search" placeholder ="search Monkey" onChange={(e) => {
           // console.log(e.target.value);
           this.setState({searchField: e.target.value})
-        }}/>
+        }}/> */}
+
+        <SearchBox 
+        
+        placeholder ="search Monkey"
+        handleChange = {(e) => {
+          this.setState({searchField: e.target.value})}}
+        
+        />
+
 
         {/* {JSON.stringify(searchField)} */}
         <MonkeyList data ={filteredMonkey}> 
